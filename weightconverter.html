@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+   integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>WEIGHT CONVERTER</title>
+	</head>
+	<style>
+	body{
+	margin-top:80px;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(117,12,158,1) 35%, rgba(0,212,255,1) 100%);
+	color:#fff;
+  }
+  .cursor{
+	width: 3rem;
+	height: 3rem;
+	border:2px solid black;
+	border-radius: 50%;
+	position:absolute;
+	transform: translate(-50%,-50%);
+	pointer-events: none;
+}
+  </style>
+   <body>
+     <div class="cursor"></div>
+   <div class="container">
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+     <h1 class="display-4 text-center mb-3">                                  
+        WEIGHT CONVERTER</h1>
+       <form>
+       <div class="form-group">
+       <input id ="lbsInput"
+       type="number"
+       class="form-control form-control-lg"
+       placeholder="enter mass..."
+       >
+       </div>
+      </form>
+      <div id="output">
+        <div class="card bg-info mb-2">
+          <div class="card-block">
+            <h4>Grams:</h4>
+            <div id="gramsOutput"></div>
+          </div>
+        </div>
+      
+      <div class="card bg-success mb-2">
+        <div class="card-block">
+          <h4>Kilograms:</h4>
+          <div id="kgOutput"></div>
+        </div>
+      </div>
+
+   <div class="card bg-primary mb-2">
+    <div class="card-block">
+      <h4>Ounces:</h4>
+      <div id="ozOutput"></div>
+      </div></div>
+   </div>
+  </div>
+ </div>
+</div>
+
+    <script>
+      document.getElementById('output').style.visibility='hidden';
+      document.getElementById('lbsInput').addEventListener
+      ('input', function(e){
+        document.getElementById('output').style.visibility='visible';
+        let lbs = e.target.value;
+        document.getElementById('gramsOutput')
+        .innerHTML=lbs/1000;    
+        
+        document.getElementById('kgOutput')
+        .innerHTML=lbs/2.2046;    
+        document.getElementById('ozOutput')
+        .innerHTML=lbs*28.35;    
+        
+        });
+    </script>
+    <script>
+      let mouseCursor = document.querySelector(".cursor");
+      
+      window.addEventListener('mousemove',cursor);
+      function cursor(e){
+        mouseCursor.style.top = e.pageY + 'px';
+        mouseCursor.style.left = e.pageX + 'px';
+      
+      }</script>
+    </body>
+    </html>
